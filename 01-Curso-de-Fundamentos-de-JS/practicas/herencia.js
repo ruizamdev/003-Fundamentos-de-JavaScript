@@ -21,8 +21,15 @@ class perro extends animal {
     }
 }
 
-const perro1 = new perro("Sirio", "perro", "Maltes")
+const perro1 = new perro("Sirio", "perro", "Maltés")
 
 console.log(perro1)
 perro1.emitirSonido()
 perro1.correr()
+
+perro.prototype.nuevoMetodo = function () {
+    console.log("Este es un nuevo método")
+}
+
+let currentPrototype = Object.getPrototypeOf(perro1)
+console.log(currentPrototype)
