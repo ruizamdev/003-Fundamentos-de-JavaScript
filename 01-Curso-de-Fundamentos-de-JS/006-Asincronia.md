@@ -29,7 +29,7 @@ Para esto tendremos que utilizar un código llamado promesas, las cuales son asy
 ## Promesas en JS
 Una promesa representa un valor que puede estar disponible ahora, en el futuro o nunca. Las promesas permiten escribir código asíncrono de manera más clara y manejable, evitando el *"callback hell"* (anidación excesiva de funciones de callback).
 
-### Estados de una promesa
+### Estados y Callbacks de una promesa
 Una promesa puede estar en uno de los siguientes estados:
 
 1. **Pending** (Pendiente): Estado inicial, la promesa aún no se ha resuelto ni rechazado.
@@ -38,8 +38,40 @@ Una promesa puede estar en uno de los siguientes estados:
 
 Las promesas manejan dos tipos de callback:
 
-1. ****
+1. **Resolve** (Resuelto): Cuando la promesa se resuelva de manera satisfactoria.
+2. **Reject** (Rechazado): Cuando la promesa no se puede resolver.
+
+### Métodos de las promesas
+
+1. `then()`: Se ejecuta cuando la promesa se ha resuelto
+2. `catch()`: Obtiene el error cuando una promesa no se pudo resolver
+
 ```javascript
-promise()
-pending
+const promise = new Promise(
+    (resolve, reject) => {
+        setTimeout(() => {let operationSuccesful = true})
+        if(operationSuccesful){
+            resolve("La operación fue exitosa")
+        } else {
+            reject ("Falló la operación3")
+        }
+    }
+)
+
+promise
+    .then((successMessage) => {
+        console.log(successMessage)
+    })
+    .catch((errorMessage) => {
+        console.log(errorMessage)
+    })
+```
+
+<br>
+
+## Async & Await
+Esta es otra forma de trabajar código asíncrono
+
+```javascript
+
 ```
