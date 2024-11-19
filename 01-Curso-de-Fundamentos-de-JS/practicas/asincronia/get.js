@@ -1,9 +1,12 @@
+// Inicialización de variables
 const listElement = document.querySelector(".posts")
 const postTemplate = document.getElementById("single-post")
 const form = document.querySelector("#new-post form")
 const fetchButton = document.querySelector("#available-posts button")
 const postList = document.querySelector("#posts-container")
 
+/* Función para enviar peticiones HTTP mediante fetch, 
+ configurando el método, la URL y los datos a enviar */
 function sendHTTPRequest(method, url, data) {
     return fetch(url, {
         method: method,
@@ -16,6 +19,7 @@ function sendHTTPRequest(method, url, data) {
     })
 }
 
+// Función asíncrona para obtener los posts de la API y mostrarlos en el DOM
 async function fetchPosts() {
     const responseData = await sendHTTPRequest('GET', 'https://jsonplaceholder.typicode.com/posts')
     console.log(responseData)
@@ -42,8 +46,10 @@ async function fetchPosts() {
     }
 }
 
+// Evento click para obtener los posts de la API
 fetchButton.addEventListener("click", fetchPosts)
 
+// Función asíncrona para crear un nuevo post en la API
 async function createPost(title, content) {
     const userId = Math.random();
     const post = {
@@ -55,10 +61,21 @@ async function createPost(title, content) {
     sendHTTPRequest("POST", "https://jsonplaceholder.typicode.com/posts", post)
 }
 
+// Evento submit para enviar el nuevo post a la API
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     const title = event.currentTarget.querySelector("#title").value
     const content = event.currentTarget.querySelector("#content").value
 
     createPost(title, content)
+})
+
+// Evento click sobre el padre de los posts para eliminar un post en particular
+postList.addEventListener("click", (event) => {
+    console.log(event)
+    if (event.target.tagName === "BUTTON") {
+        const postId = event.target.closest("article").id
+        console.log(postId)
+        sendHTTPRequest("DELETE", `https://jsonplaceholder.typicode.com/posts/${postId}`)
+    }
 })
