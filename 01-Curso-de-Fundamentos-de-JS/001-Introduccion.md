@@ -107,10 +107,10 @@ function saludar() {
 
 ## Creación de Strings
 ```javascript
-let string1 = 'Hola mundo'
-let string2 = "JavaScript esta bien shing-on"
-let string3 = `${string1} feliz`
-let string4 = string1 + string2
+let string1 = 'Hola comillas Simples!'
+let string2 = "Hola comillas Dobles!"
+let string3 = `${string1} invertidas`
+let string4 = string1 + ' ' + string2
 ```
 Resultado
 ```
