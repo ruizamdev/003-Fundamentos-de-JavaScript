@@ -1,1 +1,1 @@
-const input = document.querySelector("input")
+const title = document.querySelector("#app-title");
