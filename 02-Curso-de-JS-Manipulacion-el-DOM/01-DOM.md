@@ -85,6 +85,21 @@ Las consultas con getElementsBy son mucho mas rápidas que querySelector
 ## Navegación efectiva entre Nodos
 Para poder navegar entre nodos, ya sea padre, hijos o hermanos de manera efectiva para poder manipularlos, existe un forma denominada **traversing DOM**, la cual nos ayuda a hacerlo sin tener que depender necesariamente de la jerarquía del árbol.
 
+Podemos dividir la navegación entre nodos en 3:
+
+- Nodos más altos
+- Todos los nodos
+- Nodos tipo elemento HTML
+
+Nodos más altos | Todos los nodos | Nodos tipo elemento HTML
+:---: | :---: | :---:
+`html` = document.documentElement |  element.childNodes | element.Children
+`head` = document.head | element.firstChild | element.firstElementChild
+`body` = document.body | element.lastChild | element.lastElementChild
+| | element.parentNode | element.parentElement
+| | element.nextSibling | element.nextElementSibling
+| | element.previousSibling | element.previousElementSibling
+
 ### Traversing DOM
 Hay diferentes formas de navegar el DOM:
 
@@ -146,3 +161,20 @@ console.log(grandGrandParent)
 // parentElement; // non-live HTMLCollection
 // closest(selector); // este último es el más utilizado
 ```
+
+### Tablas
+**El elemento `table` soporta (además de todo lo anterior) las siguientes propiedades:**
+- `table.row`: Obtiene la colección de elementos `tr` de la tabla
+- `table.caption/tHead/tFoot`: Hace referencia a los elementos `caption`, `thead` y `tfoot`
+- `table.tBodies`: Obtiene la colección de elementos `tbody` que por estandar debe de haber al menos uno, incluso si no es declarado explicitamente, el navegador lo agrega al DOM.
+
+**`thead`, `tfoot` y `tbody` proveen las propiedades de las filas:**
+- `tbody.rows`: devuelve la colección de elementos `tr` que tiene dentro `tbody`
+
+**`tr`:**
+- `tr.cells`: Devuelve la colección de celdas `td` y `th` dentro dl elemento `tr` dado.
+- `tr.sectionRowIndex`: Obtiene la posición (indice) del elemento `tr` dado, dentro de las etiquetas `thead`/`tbody`/`tfoot`
+- `tr.rowIndex`: Devuelve el número de elementos `tr` en la tabla en su conjunto (incluyendo todas las filas de la tabla)
+
+**`td` y `th`**
+- `td.cellIndex`: Obtiene el número de celdas dentro de la etiqueta `tr`
