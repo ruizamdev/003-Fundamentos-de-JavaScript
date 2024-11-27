@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 1rem;
+      border: 1px solid black;
+      margin: 1rem;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #ccc;
+    }
+
+    .highlight {
+      background-color: #81fa07;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <ul>
+
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+      <li>Option 4</li>
+      <li>Option 5</li>
+
+    </ul>
+  </main>
+  <script>
+
+    // const listItems = document.querySelectorAll('li');
+    
+    // listItems.forEach((item) => {
+    //   item.addEventListener('click', (event) =>{
+    //     event.target.classList.toggle('highlight')
+    //   })
+    // })
+
+    const list = document.querySelector('ul');
+
+    list.addEventListener('click', (event) => {
+        event.target.closest('li').classList.toggle('highlight');  
+    });
+  </script>
+</body>
+
+</html>
