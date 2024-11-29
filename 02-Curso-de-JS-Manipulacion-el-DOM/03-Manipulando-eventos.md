@@ -25,6 +25,8 @@ Flujo:
 - Target: es el objeto que disparó el evento
 - Bubbling: Vuelve al objeto `window()`
 
+![dom-event-flow](./assets/dom-event-flow.png)
+
 <br>
 
 ## Agregar y eliminar Event Listeners
