@@ -53,31 +53,38 @@ Bigint
 ### Tipos de datos Primitivos
 
 #### String
+Son cadenas de caracteres, los escribimos entre comillas dobles, simples y a partir de ES6 con comillas francesas
 ```javascript
 let nombre = 'Armando'
 ```
 #### Number
+Es un número
 ```javascript
 let edad = 25
 ```
 #### Boolean
+Es un dato que puede representar dos valores, verdadero o falso (true or false)
 ```javascript
 let esMayorDeEdad = true
 ```
 #### Null
+Tipo de dato nulo, nos indica que no hay valor, que esta vacío, nos asegura que no hay nada almacenado
 ```javascript
 let noHayValor = null
 ```
 #### Undefined
+Indefinido, también nos indica que no hay un valor, pero a diferencia de null, esto lo asigna el propio lenguaje, como por ejemplo cuando declaramos una variable pero no le asignamos un valor
 ```javascript
 let noDefinido = undefined // Este valor, nosotros como programadores no lo utilizamos,
                            // esto lo hace JS para indicarlo en ciertas situaciones.
 ```
 #### Symbol
+Nos indica un valor único.
 ```javascript
 let simboloUnico = Symbol('único')
 ```
 #### Bigint
+Nos indica un valor numérico grande.
 ```javascript
 let numeroGrande = 2n
 ```
@@ -85,6 +92,7 @@ let numeroGrande = 2n
 ### Tipos de datos Complejos
 
 #### Object
+Es un tipo de dato el cual tiene varias propiedades únicas que lo conforman e identifican.
 ```javascript
 let autoMovil = {
     marca: 'Tesla',
@@ -92,11 +100,13 @@ let autoMovil = {
 }
 ```
 #### Array
+Son listas o un conjunto de datos, asignadas a una variable o constante.
 ```javascript
 let frutas = ['manzana', 'platano', 'uvas']
 ```
 
 #### Function
+Es una serie de instrucciones que se pueden reutilizar, las cuales
 ```javascript
 function saludar() {
 
