@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tareas">
+    </div>
+    <script>
+        const tareas = document.getElementById('tareas');
+        const lista = [
+            {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",},
+            {num: 2, title: "correr", description: "salir a correr", status: "pendiente",},
+            {num: 1, title: "aseo personal", description: "bañarse", status: "pendiente",},
+            {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",},
+            {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",}
+        ]
+
+        lista.forEach(tarea => {
+            tareas.innerHTML += `<li>${tarea.num}. ${tarea.comer}: ${tarea.descripcion}. Status: ${tarea.status}</li><input type="checkbox">` 
+        })
+    </script>
+</body>
+</html>

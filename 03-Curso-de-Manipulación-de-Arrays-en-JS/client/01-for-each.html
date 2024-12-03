@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const products = [
+            {title: 'Burger', price: 120},
+            {title: 'Pizza', price: 150},
+        ];
+        const app = document.getElementById('app');
+        products.forEach(product => {
+            app.innerHTML += `<li>${product.title} - ${product.price}</li>`;
+        })
+
+        const persons = [
+            {name: "Armando", age: 35},
+            {name: "Hilda", age: 30},
+            {name: "Irina", age: 4},
+            {name: "Margarita", age: 63},
+            {name: "Joaquin", age: 60},
+            {name: "Carmina", age: 36}
+        ]
+    
+        for(let index = 0; index < persons.length; index++) {
+            const person = persons[index];
+            app.innerHTML += `<span>Nombre: ${person.name}, Edad: ${person.age} años</span> <br>`;
+        }
+        
+        const body = document.body;
+        body.style.backgroundColor = 'lightblue';
+    </script>
+</body>
+</html>
