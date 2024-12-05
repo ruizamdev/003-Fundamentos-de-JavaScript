@@ -13,14 +13,35 @@
         const lista = [
             {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",},
             {num: 2, title: "correr", description: "salir a correr", status: "pendiente",},
-            {num: 1, title: "aseo personal", description: "bañarse", status: "pendiente",},
-            {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",},
-            {num: 1, title: "comer", description: "hacer de comer en la noche", status: "pendiente",}
+            {num: 3, title: "aseo personal", description: "bañarse", status: "pendiente",},
+            {num: 4, title: "comer", description: "hacer de comer en la noche", status: "pendiente",},
+            {num: 5, title: "comer", description: "hacer de comer en la noche", status: "pendiente",}, 
         ]
-
+        
         lista.forEach(tarea => {
-            tareas.innerHTML += `<li>${tarea.num}. ${tarea.comer}: ${tarea.descripcion}. Status: ${tarea.status}</li><input type="checkbox">` 
+            tareas.innerHTML += `<p>${tarea.num}. ${tarea.comer}: ${tarea.descripcion}. Status: ${tarea.status}<input type="checkbox"></p>`;
         })
+        addEventListener('checkbox', (e) => {
+            if (e.target.checked) {
+                //
+                const listItem = e.target.parentElement;
+                const taskNum = listItem.textContent.split('.')[0];
+                function changeStatus(status) {
+                    
+            }
+    } else if (!e.target.checked) {
+        //
+        const listItem = e.target.parentElement;
+        const taskNum = listItem.textContent.split('.')[0];
+        function changeStatus(status) {
+            lista.forEach(tarea => {
+                if (tarea.num === taskNum) {
+                    tarea.status = Pendiente;
+                }
+            })
+        }
+    }
+})
     </script>
 </body>
 </html>
