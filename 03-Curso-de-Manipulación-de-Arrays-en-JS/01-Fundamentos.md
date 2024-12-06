@@ -80,3 +80,106 @@ console.log('new', newArray);
 </body>
 </html>
 ```
+
+<br>
+
+## Map reloaded
+Podemos transformar nuestros arrays en lo que sea. Utilizando esta forma.
+Tomares el siguiente array para los ejemplos posteriores:
+```javascript
+const orders = [
+    {
+        customerName: 'Nicolas',
+        total: 60,
+        delivered: true
+    },
+    {
+        customerName: 'Zulema',
+        total: 120,
+        delivered: false
+    },
+    {
+        customerName: 'Santiago',
+        total: 180,
+        delivered: true
+    },
+    {
+        cusotmerName: 'Valentina',
+        total: 240,
+        delivered: true
+    }
+];
+```
+
+<br>
+
+### // Creacion de un array a partir de la información contenida en otro array
+```javascript
+console.log('original', orders);
+const respuesta = orders.map(item => item.total);
+console.log('respuesta', respuesta);
+```
+Output:
+```
+original [
+  { custmerName: 'Nicolas', total: 60, delivered: true },
+  { custmerName: 'Zulema', total: 120, delivered: false },
+  { custmerName: 'Santiago', total: 180, delivered: true },
+  { custmerName: 'Valentina', total: 240, delivered: true }
+]
+respuesta [ 60, 120, 180, 240 ]
+```
+```javascript
+const respuesta2 = orders.map(item => {
+    item.tax = .19;
+    return item
+})
+console.log('respuesta2', respuesta2);
+console.log('original', orders)
+```
+Output:
+```
+respuesta2 [
+  { custmerName: 'Nicolas', total: 60, delivered: true, tax: 0.19 },
+  { custmerName: 'Zulema', total: 120, delivered: false, tax: 0.19 },
+  { custmerName: 'Santiago', total: 180, delivered: true, tax: 0.19 },
+  { custmerName: 'Valentina', total: 240, delivered: true, tax: 0.19 }
+]
+original [
+  { custmerName: 'Nicolas', total: 60, delivered: true, tax: 0.19 },
+  { custmerName: 'Zulema', total: 120, delivered: false, tax: 0.19 },
+  { custmerName: 'Santiago', total: 180, delivered: true, tax: 0.19 },
+  { custmerName: 'Valentina', total: 240, delivered: true, tax: 0.19 }
+]
+```
+Aquí lo que se esta haciendo es trabajar una copia del array de objetos hecha por map, por lo tanto solo sera de manera temporal, ya que el array original no se esta modificando en realidad.
+
+---
+### 
+
+```javascript
+const respuesta3 = orders.map((item) => {
+    return {
+        ...item,
+        tax: .19
+    }
+})
+
+console.log('Respuesta #3: ', respuesta3)
+console.log('original: ', orders)
+```
+Output:
+```
+Respuesta #3:  [
+  { customerName: 'Nicolas', total: 60, delivered: true, tax: 0.19 },
+  { customerName: 'Zulema', total: 120, delivered: false, tax: 0.19 },
+  { customerName: 'Santiago', total: 180, delivered: true, tax: 0.19 },
+  { customerName: 'Valentina', total: 240, delivered: true, tax: 0.19 }
+]
+original:  [
+  { customerName: 'Nicolas', total: 60, delivered: true, tax: 0.19 },
+  { customerName: 'Zulema', total: 120, delivered: false, tax: 0.19 },
+  { customerName: 'Santiago', total: 180, delivered: true, tax: 0.19 },
+  { customerName: 'Valentina', total: 240, delivered: true, tax: 0.19 }
+]
+```
