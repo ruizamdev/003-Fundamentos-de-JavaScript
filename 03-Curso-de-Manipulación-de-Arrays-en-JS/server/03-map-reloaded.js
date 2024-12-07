@@ -25,7 +25,8 @@ console.log('original', orders);
 const respuesta = orders.map(item => item.total);
 console.log('respuesta', respuesta);
 
-// "Modificación de un array, por medio de la inmutabilidad"
+// En esta función se agrega un nuevo atributo a cada objecto de la referencia en memoria del array orders
+// Porque solo se esta retornando el objeto array y no se esta creando un nuevo objeto
 const respuesta2 = orders.map(item => {
     item.tax = .19;
     return item
@@ -33,7 +34,7 @@ const respuesta2 = orders.map(item => {
 console.log('respuesta2', respuesta2);
 console.log('original', orders)
 
-//
+// Aqui se crea un nuevo objeto array mediante la copia o referencia en memoria del array, utilizando el principio de inmutabilidad, igual que la respuesta #1
 const respuesta3 = orders.map((item) => {
     return {
         ...item,

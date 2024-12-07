@@ -83,7 +83,7 @@ console.log('new', newArray);
 
 <br>
 
-## Map reloaded
+## Map reloaded (Inmutable)
 Podemos transformar nuestros arrays en lo que sea. Utilizando esta forma.
 Tomares el siguiente array para los ejemplos posteriores:
 ```javascript
@@ -182,4 +182,12 @@ original:  [
   { customerName: 'Santiago', total: 180, delivered: true, tax: 0.19 },
   { customerName: 'Valentina', total: 240, delivered: true, tax: 0.19 }
 ]
+```
+
+<br>
+
+## Filter (Inmutable)
+Ayuda a filtrar los elementos en base a un condicional, los elementos que cumplan con la condición van a ser parte de ese nuevo array
+```javascript
+const words = [`spray`, s]
 ```
