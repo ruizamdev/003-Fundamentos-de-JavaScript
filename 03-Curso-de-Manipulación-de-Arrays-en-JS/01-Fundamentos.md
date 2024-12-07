@@ -187,7 +187,75 @@ original:  [
 <br>
 
 ## Filter (Inmutable)
-Ayuda a filtrar los elementos en base a un condicional, los elementos que cumplan con la condición van a ser parte de ese nuevo array
+Ayuda a filtrar los elementos en base a un condicional, los elementos que cumplan con la condición van a ser parte de ese nuevo array.
+
+Planteamos este array:
 ```javascript
-const words = [`spray`, s]
+const words = [`spray`, `limit`, `elite`, `exuberant`];
 ```
+
+Una forma de filtrar un array seria de la siguiente manera:
+```javascript
+const newArray = [];
+for (let index = 0; index < words.length; index++) {
+    const item = words[index];
+    if(item.length >= 6) {
+        newArray.push(item);       
+    };
+};
+console.log(`newArray: `, newArray);
+console.log(`words: `, words);
+```
+Pero esto es algo largo, una forma de reducirlo es utilizando filter:
+```javascript
+const respuesta = words.filter(item => item.length >= 6)
+console.log(`respuesta: `, respuesta);
+console.log(`words: `, words);
+
+```
+En tan solo una linea se pudo expresar lo mismo que en la anterior con 7 lineas de código
+
+<br>
+
+Tomando el array del ejemplo dado en map-reloaded:\
+```javascript
+const orders = [
+    {
+        customerName: 'Nicolas',
+        total: 60,
+        delivered: true
+    },
+    {
+        customerName: 'Zulema',
+        total: 120,
+        delivered: false
+    },
+    {
+        customerName: 'Santiago',
+        total: 180,
+        delivered: true
+    },
+    {
+        customerName: 'Valentina',
+        total: 240,
+        delivered: true
+    }
+];
+```
+Podemos hacer esto con filter:
+```javascript
+const filtro = orders.filter(item => item.delivered)
+console.log('filtro: ', filtro)
+
+const search = (query) => {
+    return orders.filter(item => {
+        return item.customerName.includes(query)
+    })
+}
+console.log('resultado', search('Nico'))
+```
+
+<br>
+
+## Reduce ()
+reduce el valor
