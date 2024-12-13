@@ -113,7 +113,7 @@ const orders = [
 
 <br>
 
-### // Creacion de un array a partir de la información contenida en otro array
+### Creacion de un array a partir de la información contenida en otro array
 ```javascript
 console.log('original', orders);
 const respuesta = orders.map(item => item.total);
@@ -258,4 +258,24 @@ console.log('resultado', search('Nico'))
 <br>
 
 ## Reduce ()
-reduce el valor
+reduce un array a un único valor.Este método aplica una función a un acumulador y a cada elemento del array(de izquierda a derecha) para reducirlo a un solo valor.
+
+Código sin reduce:
+```javascript
+const totales = [1,2,3,4,5]
+let sum = 0;
+for (let index = 0; index < totales.length; index++) {
+    const element = totales[index];
+    sum = sum + element;
+}
+console.log(sum);
+// output:
+// 15
+```
+
+Código con método reduce():
+```javascript
+const rta = totales.reduce((sum, element) => sum + element, 0)
+console.log(rta)
+```
+
