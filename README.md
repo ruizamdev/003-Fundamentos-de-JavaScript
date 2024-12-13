@@ -6,13 +6,8 @@
 5. **Curso de ECMAScript: Historia y versiones de JS.**
 6. **Curso básico de POO con JS.**
 7. **Curso intermedio de POO con JS.**
-8. **Curso de JS Engine V8 y el Navegador.**
-9. **Curso de NPM: Gestión de paquetes y dependencias en JS**
-10. **Curso de asincronismo con JS**
-11. **Curso de JS: Manipulación del DOM**
-
+8. **Curso de asincronismo con JS**
 
 ## Extra
-13. **30 días de JS**
-14. **Taller de Secretos ocultos de JS: Protección de clases y objetos**
-15. **Curso de TypeScript**
+9. **30 días de JS**
+10. **Taller de Secretos ocultos de JS: Protección de clases y objetos**
