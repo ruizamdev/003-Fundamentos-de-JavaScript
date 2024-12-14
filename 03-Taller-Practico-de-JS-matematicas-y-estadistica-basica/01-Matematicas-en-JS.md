@@ -36,8 +36,6 @@ L1 + L2 + L3 = perímetro
 5cm + 6cm + 4cm = 15cm
 ```
 
-```
-### Area del triangulo
-(B * A) / 2
-```
 
+### Area del triangulo
+`(B * A) / 2`
