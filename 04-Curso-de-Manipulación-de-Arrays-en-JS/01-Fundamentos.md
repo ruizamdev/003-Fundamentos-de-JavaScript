@@ -1,6 +1,6 @@
 # Fundamentos de manejo de arrays
 
-## forEach
+## 1. forEach
 
 Iteración con forEach
 ```javascript
@@ -41,7 +41,7 @@ sin modificar el array original
 
 <br>
 
-## map (Inmutable)
+## 2. map (Inmutable)
 map transforma, 
 
 hace una transformación del array (crea una copia optimizada para trabajar sobre ella) itera y aplica una función para cada uno de los valores.
@@ -83,7 +83,7 @@ console.log('new', newArray);
 
 <br>
 
-## Map reloaded (Inmutable)
+## 3. map reloaded (Inmutable)
 Podemos transformar nuestros arrays en lo que sea. Utilizando esta forma.
 Tomares el siguiente array para los ejemplos posteriores:
 ```javascript
@@ -186,7 +186,7 @@ original:  [
 
 <br>
 
-## Filter (Inmutable)
+## 4. Filter (Inmutable)
 Ayuda a filtrar los elementos en base a un condicional, los elementos que cumplan con la condición van a ser parte de ese nuevo array.
 
 Planteamos este array:
@@ -257,7 +257,7 @@ console.log('resultado', search('Nico'))
 
 <br>
 
-## Reduce ()
+## 5. Reduce
 reduce un array a un único valor.Este método aplica una función a un acumulador y a cada elemento del array(de izquierda a derecha) para reducirlo a un solo valor.
 
 Código sin reduce:
@@ -279,3 +279,104 @@ const rta = totales.reduce((sum, element) => sum + element, 0)
 console.log(rta)
 ```
 
+## 6. reduce reloaded
+```javascript
+// Reduce reloaded
+const items = [1,1,2,6,5,4,1,3,0,1,6,5,8,9,7,0,0,6,5,7,4,2,7,3,2,0,4,6];
+// cuantos hay de un mismo de cada uno de los elementos del array
+//output
+// 1: 1,
+// 3: 2,
+// 2: 1,
+
+const respuesta = items.reduce((obj, item) => {
+    if (!obj[item]) {
+        obj[item] = 1;
+    } else {
+        obj[item] = obj[item] + 1;
+    };
+    return obj;
+}, {}); 
+
+console.log(respuesta);
+
+
+// ahora con objetos
+
+const data = [
+    {
+        name: "Laura",
+        department: "UX Designer"
+    },
+    {
+        name: "Carlos",
+        department: "Backend Dev"
+    },
+    {
+        name: "Juan",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Liliana",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Andres",
+        department: "Backend Dev"
+    },
+    {
+        name: "Carlos",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Armando",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Laura",
+        department: "UX Designer"
+    },
+    {
+        name: "Carlos",
+        department: "Backend Dev"
+    },
+    {
+        name: "Juan",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Liliana",
+        department: "Frontend Dev"
+    },
+    {
+        name: "Andres",
+        department: "Backend Dev"
+    }
+];
+
+const respuesta2 = data
+.map(item => item.department)
+.reduce((obj, item) => {
+    if(!obj[item]) {
+        obj[item] = 1;
+    } else {
+        obj[item] = obj[item] + 1;
+    }
+    return obj;
+}, {});
+
+console.log(respuesta2);
+
+
+// por rangos
+
+const numeros = [1,1,5,3,2,1,1,5,6,5,7,4,8,9,1,3,2,1,9,6,8,5,4,1,3,5,3,0,1,6,5,4,9,5,7,8,2,0,1,2,3,0,2,9,7];
+const respuesta3 = numeros
+.reduce((obj, item) => {
+    if (!obj[item]) {
+        obj[item] = 1;
+    } else {
+        obj[item] = obj[item] + 1;
+    }    
+})
+```
