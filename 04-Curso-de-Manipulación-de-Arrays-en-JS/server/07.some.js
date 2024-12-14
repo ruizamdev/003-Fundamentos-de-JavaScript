@@ -6,13 +6,13 @@ let respuesta = false;
 for (let index = 0; index < numbers.length; index++) {
     const element = numbers[index];
     if (element % 2 === 0) {
-        rta = true;
+        respuesta = true;
         break;
     }
 }
-console.log(rta);
+console.log(respuesta);
 
-const respuesta2 = numbers.some(item => item % 2 ===0);
+const respuesta2 = numbers.some(item => item % 2 === 0);
 console.log(respuesta2);
 
 
@@ -43,7 +43,7 @@ const orders = [
 const respuesta3 = orders.some(item => item.delivered);
 console.log('respuesta3', respuesta3);
 
-// array de appointments
+// array de appointments ("citas")
 const dates = [
     {
         startDate: new Date(2021, 0, 1, 10),
@@ -67,3 +67,19 @@ const dates = [
     }
 ];
 
+const newAppointment = {
+    startDate: new Date(2021, 1, 1, 19),
+    endDate: new Date(2021, 1, 1, 20, 30),
+};
+
+const { areIntervalsOverlapping } = require("date-fns");
+const isOverlap = (newDate) => {
+    return dates.some(date => {
+        return areIntervalsOverlapping(
+            {start: date.startDate, end: date.endDate},
+            {start: newDate.startDate, end: newDate.endDate},
+        );
+    });
+};
+
+console.log(isOverlap('is overlap?', newAppointment))
