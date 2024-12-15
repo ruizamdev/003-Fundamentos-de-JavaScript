@@ -1,5 +1,5 @@
 ## Fundamentos de JavaScript
-1. **Curso de fundamentos de JS.**
+1. [**Curso de fundamentos de JS.**](./01-Curso-de-Fundamentos-de-JS)
 2. **Curso de scope y closure en JS.**
 3. **Taller Práctico de JS: Matemáticas y Estadística Básica.**
 4. **Curso de manipulación de arrays en JS.**
