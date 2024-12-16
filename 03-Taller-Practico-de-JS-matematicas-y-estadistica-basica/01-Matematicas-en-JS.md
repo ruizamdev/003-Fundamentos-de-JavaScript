@@ -151,7 +151,7 @@ function calcularCirculo(radio) {
 
 <br>
 
-## Reto: Altura de un Triangulo
+## Reto: Altura de un Triangulo Escaleno
 
 ### Requisitos:
 - Sabiendo lo que miden los 3 lados, encontrar la altura.
@@ -159,6 +159,6 @@ function calcularCirculo(radio) {
 
 Formula:
 ```
-h =  raíz cuadrada de (a^2 - b^2/4)
+h = raíz cuadrada de (a^2 - b^2/4)
 ```
 
