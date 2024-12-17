@@ -102,17 +102,21 @@ function calcularCuadrado(lado) {
 ### Calculando el perímetro y  
 
 ```
-Para calcular el perímetro de un circulo debemos tomar en cuenta dos cosas, el radio,
-el cual es la linea que va desde el centro a cualquier punto exterior del circulo.
+Para calcular el perímetro de un circulo
+debemos tomar en cuenta dos cosas, el radio,
+el cual es la linea que va desde el centro
+a cualquier punto exterior del circulo.
 
 radio = r
 
-duplicando el radio y manteniendo las dos partes continuas 
-en una linea recta tenemos lo que es el diámetro.
+duplicando el radio y manteniendo las dos
+partes continuas en una linea recta tenemos
+lo que es el diámetro.
 
 diámetro = r * 2
 
-Teniendo ya en cuenta estos dos, el perímetro de un circulo (al cual llamamos circunferencia), 
+Teniendo ya en cuenta estos dos, el perímetro
+de un circulo (al cual llamamos circunferencia), 
 es el diámetro por pi
 (r * 2) * PI
 ```
@@ -158,7 +162,8 @@ function calcularCirculo(radio) {
 
 ### Requisitos:
 - Sabiendo lo que miden los 3 lados, encontrar la altura.
-- Debe ser un triangulo isosceles no equilátero (2 lados iguales y 1 diferente.)
+- Debe ser un triangulo isosceles no equilátero 
+(2 lados iguales y 1 diferente.)
 
 Formula:
 ```
