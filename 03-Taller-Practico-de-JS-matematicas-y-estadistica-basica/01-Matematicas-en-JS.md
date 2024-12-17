@@ -4,12 +4,15 @@
 
 #### Cuadrado
 ```
-Para obtener el PERÍMETRO de un cuadrado solo debemos de sumar los 4 lados, 
-por lo que podemos simplemente multiplicar uno de los lados por 4:
+Para obtener el PERÍMETRO de un cuadrado
+solo debemos de sumar los 4 lados, 
+por lo que podemos simplemente multiplicar 
+uno de los lados por 4:
 
 l x 4 = P
 
-Para obtener el ÁREA del mismo, tenemos que multiplicar un lado por otro
+Para obtener el ÁREA del mismo, tenemos que multiplicar
+un lado por otro:
 
 l x l = A
 ```
