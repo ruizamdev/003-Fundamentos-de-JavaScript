@@ -131,10 +131,28 @@ console.group("Escaleno")
 // ALTURA DE UN TRIANGULO ESCALENO
 // Sabiendo solo la medida de los 3 lados.
 function calcularEscaleno(a,b,c){
-    let a = a;
-    let b = b;
-    let c = c;
-    let permietro = a + b + c;
-    let semiPerimetro = permietro/2;
-    let area = Math.sqrt(semiPerimetro(semiPerimetro-a)(semiPerimetro-b)(semiPerimetro-c))
+    let perimetro = a + b + c;
+    let semiPerimetro = perimetro / 2;
+    let area = (Math.sqrt(semiPerimetro*(semiPerimetro-a)*(semiPerimetro-b)*(semiPerimetro-c))).toFixed(1);
+    let altura = (2/a*area).toFixed(1);
+    alert(`
+        Hola, buen dia, Soy el programa para calcular varias propiedades de un Triangulo Escaleno
+        los lados que introdujiste son:
+        Lado a: ${a},
+        Lado b: ${b},
+        Lado c: ${c}.
+        Por lo tanto su Perímetro es ${perimetro},
+        su Área es de ${area},
+        y su Altura es de ${altura}.
+    `)
+    return {
+        ladoA: a,
+        ladoB: b,
+        ladoC: c,
+        perimetro: perimetro,
+        semiPerimetro: semiPerimetro,
+        area: area,
+        altura: altura
+    }
 }
+console.groupEnd("Escaleno")
