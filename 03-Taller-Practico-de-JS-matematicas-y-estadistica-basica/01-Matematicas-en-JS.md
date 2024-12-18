@@ -6,12 +6,15 @@ Calcularemos el area, perimetro, circunferencia, altura, etc, de diferentes figu
 
 #### Cuadrado
 ```
-Para obtener el PERÍMETRO de un cuadrado solo debemos de sumar los 4 lados, 
-por lo que podemos simplemente multiplicar uno de los lados por 4:
+Para obtener el PERÍMETRO de un cuadrado
+solo debemos de sumar los 4 lados, 
+por lo que podemos simplemente multiplicar 
+uno de los lados por 4:
 
 l x 4 = P
 
-Para obtener el ÁREA del mismo, tenemos que multiplicar un lado por otro
+Para obtener el ÁREA del mismo, tenemos que multiplicar
+un lado por otro:
 
 l x l = A
 ```
@@ -101,17 +104,21 @@ function calcularCuadrado(lado) {
 ### Calculando el perímetro  
 
 ```
-Para calcular el perímetro de un circulo debemos tomar en cuenta dos cosas, el radio,
-el cual es la linea que va desde el centro a cualquier punto exterior del circulo.
+Para calcular el perímetro de un circulo
+debemos tomar en cuenta dos cosas, el radio,
+el cual es la linea que va desde el centro
+a cualquier punto exterior del circulo.
 
 radio = r
 
-duplicando el radio y manteniendo las dos partes continuas 
-en una linea recta tenemos lo que es el diámetro.
+duplicando el radio y manteniendo las dos
+partes continuas en una linea recta tenemos
+lo que es el diámetro.
 
 diámetro = r * 2
 
-Teniendo ya en cuenta estos dos, el perímetro de un circulo (al cual llamamos circunferencia), 
+Teniendo ya en cuenta estos dos, el perímetro
+de un circulo (al cual llamamos circunferencia), 
 es el diámetro por pi
 (r * 2) * PI
 ```
@@ -206,7 +213,8 @@ Lo que hicimos fue despejar par apoder encontrar
 
 #### Requisitos:
 - Sabiendo lo que miden los 3 lados, encontrar la altura.
-- Debe ser un triangulo isosceles no equilátero (2 lados iguales y 1 diferente.)
+- Debe ser un triangulo isosceles no equilátero 
+(2 lados iguales y 1 diferente.)
 
 Formula:
 ```
