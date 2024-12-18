@@ -127,3 +127,14 @@ console.groupEnd("Triangulos2")
 // Teorema de pitagoras
 // a**2 = h**2 + (b/2)**2
 
+console.group("Escaleno")
+// ALTURA DE UN TRIANGULO ESCALENO
+// Sabiendo solo la medida de los 3 lados.
+function calcularEscaleno(a,b,c){
+    let a = a;
+    let b = b;
+    let c = c;
+    let permietro = a + b + c;
+    let semiPerimetro = permietro/2;
+    let area = Math.sqrt(semiPerimetro(semiPerimetro-a)(semiPerimetro-b)(semiPerimetro-c))
+}

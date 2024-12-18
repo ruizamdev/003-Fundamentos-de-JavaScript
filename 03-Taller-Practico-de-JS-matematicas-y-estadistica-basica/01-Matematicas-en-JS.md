@@ -220,3 +220,13 @@ Formula:
 ```
 h = raíz cuadrada de (a^2 - b^2/4)
 ```
+
+Tuve que inverstigar.
+
+Resulta que para obtener la altura de un triangulo escaleno necesitamos la formula de herón:
+
+La cual nos dce que, en un triángulo de lados a, b, c y semiperimetro `s = (a + b + c)/2` el area es, la raiz cuadrada del semiperimetro multiplicado por la sumatoria de cada uno de los lados restando al semiperimetro.
+
+```math
+A = raizCuadradaDe(s(s-a)(s-b)(s-c))
+```
