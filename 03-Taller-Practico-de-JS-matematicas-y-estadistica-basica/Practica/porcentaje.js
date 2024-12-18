@@ -22,7 +22,14 @@ document.getElementById('discountForm').addEventListener('submit', function(even
     const discount = parseFloat(document.getElementById('discount').value);
 
     if (isNaN(price) || isNaN(discount)) {
-        alert('Por favor, ingresa valores númericos, bastardo retrograda ignorante de cagada, gracias.');
+        alert('Por favor, ingresa valores númericos');
+        return;
+    }
+    if (discount > 100) {
+        alert('El descuento no puede ser mayor al 100%');
+        return;
+    } else if (discount < 0) {
+        alert('El descuento no puede ser menor a 0%');
         return;
     }
     const moneyDiscounted = (discount * price)/100;
