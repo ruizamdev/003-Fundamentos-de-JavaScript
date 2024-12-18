@@ -1,5 +1,7 @@
 # Mathematics in JavaScript
 ## Formulas Matemáticas en JavaScript
+Para demostrar el uso de formulas en JS, vamos a utilizar las viejas formulas de geometria de la primaria.
+Calcularemos el area, perimetro, circunferencia, altura, etc, de diferentes figuras geometricas.
 ### Calculando el area y el perímetro de un cuadrado y un triangulo.
 
 #### Cuadrado
@@ -95,8 +97,8 @@ function calcularCuadrado(lado) {
 }
 ```
 
-## Math en JavaScript
-### Calculando el perímetro y  
+## Método Math en JavaScript
+### Calculando el perímetro  
 
 ```
 Para calcular el perímetro de un circulo debemos tomar en cuenta dos cosas, el radio,
@@ -151,9 +153,58 @@ function calcularCirculo(radio) {
 
 <br>
 
-## Reto: Altura de un Triangulo Escaleno
+## Reto: Altura de un Triangulo
+Este reto se dividirá en dos, un reto resuelto, el cual es una función para obtener la altura de un triangulo isósceles; y otro en el que el estudiante tendrá que resolverlo, instandose a realizar el despeje de la formula si le hes posible dentro de sus capacidades, de lo contrario podrá echar mano de las herramientas en linea que prefiera. Lo importante es que al tener la fórmula, el ejercicio de convertirla a codigo JS sea 100% hecha solo con las capacidades hasta ahora adquiridas del estudiante.
 
-### Requisitos:
+### Reto #1: Altura de un triángulo isosceles.
+- Sabiendo lo que miden los 3 lados, encontrar la altura.
+- Debe ser un triángulo isósceles no equilatero (2 lados iguales y 1 diferente)
+
+```javascript
+function calcularTriangulo(lado1, lado2, base, altura) {
+    return {
+        perimetro: lado1 + lado + base,
+        area: (base * altura) / 2,
+    };
+};
+```
+
+```javascript
+function calcularAlturaTriangulo(lado1, lado2, base) {
+    if ( lado1 != lado2 || base == lado1 || base == lado2 || ... ) {
+        console.log('no es un triangulo isósceles')
+    }
+}
+```
+
+```javascript
+if (lados == base) {
+    console.warn('Este no es un triángulo isósceles')
+} else {
+    // h = raizCuadrada(lado1 ** 2 - (b ** 2) / 4)
+    return Math.sqrt( (lados ** 2) - ((base ** 2)) / 4 );
+};
+```
+
+### Antes de...
+Te daremos la herramienta por la cual llegamos a calcular la altura del triangulo isosceles no equilatero.
+
+Esta herramienta es el Teorema de Pitagoras.
+El cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos.
+
+Hipotenusa.
+El lado del triangulo rectangulo al frente del angulo del 90 grados.
+
+El cuadrado del lado1(base) es igaul al cuadrado de la altura mas el cuadrado de la base sobre 2
+```math
+a^2 = h^2 + (b/2)^2
+```
+Lo que hicimos fue despejar par apoder encontrar
+```math
+```
+### Reto #2: Altura de un Triangulo Escaleno
+
+#### Requisitos:
 - Sabiendo lo que miden los 3 lados, encontrar la altura.
 - Debe ser un triangulo isosceles no equilátero (2 lados iguales y 1 diferente.)
 
@@ -161,4 +212,3 @@ Formula:
 ```
 h = raíz cuadrada de (a^2 - b^2/4)
 ```
-

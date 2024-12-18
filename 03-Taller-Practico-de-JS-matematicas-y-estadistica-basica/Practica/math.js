@@ -1,5 +1,8 @@
+// Matemathics in Javascript
+// Formulas Matematicas en JavaScript
+// Calculando el area y el perimetro de un cuadrado y un triangulo.
+
 // CUADRADO
-// 
 console.group("Cuadrados");
     // medida del lado de un cuadrado
     const ladoCuadrado = 5;
@@ -54,8 +57,8 @@ function calcularCuadrado(lado) {
     }
 }
 
-
-// CIRCULO
+// Metodo Math en JavaScript
+// Calculando circunferencia y area de un circulo
 console.group("Circulos");
 
     const radioCirculo = 3;
@@ -86,18 +89,41 @@ function calcularCirculo(radio) {
 }
 
 
-/* function calcularAlturaTriangulo(lado1, lado2, base){
-    if (lado1 != lado2 || base == lado1 || base == lado2) {
-
-    } else {
-
+console.group("Triangulos2")
+// ALTURA DE UN TRIANGULO
+// Calcular perimetro, altura y area de un triangulo isosceles no equilatero
+function calcularTriangulo2(lados, base) {
+    let altura = alturaTriangulo2(lados, base);
+    let perimetro = (lados*2) + base;
+    let area = (base * altura);
+    console.log(`
+        Triangulo Isosceles no Equilatero 
+        Lado 1 y lado 2 miden: ${lados}cm.
+        La base mide ${base}cm.
+        La altura es de ${altura.toFixed(3)}cm.
+        El perimetro es de ${perimetro}cm.
+        Y el area de ${area.toFixed(3)}cm.
+        Gracias Vuelva pronto.
+        `)
+    return  {
+        lados: lados,
+        base: base,
+        altura: altura,
+        perimetro: perimetro,
+        area: area,
     }
-} */
+};
 
-function calcularAlturaTriangulo(lado, base) {
-    if (lado == base) {
-        console.warn('Esto no es un triangulo isosceles');
+function alturaTriangulo2(lados, base){
+    if (lados == base) {
+        console.warn("Este no es un triángulo isósceles")
     } else {
-        return Math.sqrt((lado ** 2) - ((base ** 2)) / 4);
-    }
-}
+        // h = raizCuadrada(lados ** 2 - (base ** 2) / 4)
+        return Math.sqrt((lados**2)-((base**2))/4);
+    };
+};
+console.groupEnd("Triangulos2")
+
+// Teorema de pitagoras
+// a**2 = h**2 + (b/2)**2
+
