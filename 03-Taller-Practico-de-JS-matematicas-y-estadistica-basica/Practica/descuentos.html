@@ -35,13 +35,14 @@
 
     <br>
     <br>
+    
     <h1>Calcula el Descuento</h1>
     <p>Ingresa el precio actual y el descuento para calcular el precio final.</p>
     <form id="discountForm">
         <label for="price">Precio Original</label>
-        <input type="number" id="price" placeholder="Precio actual">
-        <label for="discount">Descuento</label>
-        <input type="number" id="discount" placeholder="Descuento">
+        <input type="number" id="price" placeholder="Precio actual" required>
+        <label for="cupon">Descuento</label>
+        <input type="text" id="cupon" placeholder="Codigo de Descuento" required>
         <input type="submit" value="Calcular Descuento">
     </form>
 

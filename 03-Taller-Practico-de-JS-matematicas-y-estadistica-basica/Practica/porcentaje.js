@@ -19,27 +19,32 @@ document.getElementById('discountForm').addEventListener('submit', function(even
     event.preventDefault();
 
     const price = parseFloat(document.getElementById('price').value);
-    const discount = parseFloat(document.getElementById('discount').value);
+    const cupon = document.getElementById('cupon').value;
 
-    if (isNaN(price) || isNaN(discount)) {
-        alert('Por favor, ingresa valores númericos');
-        return;
+    let discount;
+    switch (cupon){
+        case `ruiz7am`:
+            discount = 28
+            break;
+        case `javascript`:
+            discount = 23
+            break;
+        case `vanilla.js`:
+            discount = 18
+            break;
+        default:
+            alert('El cupon no es valido')
+            return;
     }
-    if (discount > 100) {
-        alert('El descuento no puede ser mayor al 100%');
-        return;
-    } else if (discount < 0) {
-        alert('El descuento no puede ser menor a 0%');
-        return;
-    }
+
     const moneyDiscounted = (discount * price)/100;
     const priceWithDiscount = price - moneyDiscounted;
     const resultados = document.getElementById('resultados');
     resultados.innerHTML = `
         <h2>Resultados</h2>
-        <p>El precio del producto es: ${price}</p>
+        <p>El precio del producto es: $${price}</p>
         <p>El descuento es de: ${discount}%</p>
-        <p>El descuento en dinero es de: ${moneyDiscounted}</p>
-        <p>El precio con descuento es de: ${priceWithDiscount}</p>
+        <p>El descuento en dinero es de: $${moneyDiscounted}</p>
+        <p>El precio con descuento es de: $${priceWithDiscount}</p>
     `
 })

@@ -1,7 +1,15 @@
 const months = ['March', 'Jan', 'Feb', 'Dec'];
 months.sort(); // ordena alfabeticamente
 console.log(months);
+
+const numbers = [1, 30, 4, 21, 100000]
+numbers.sort((a, b) => b - a);
+console.log(numbers)
+
 const words = ['réservé', 'premier', 'communiqué', 'café', 'adieu', 'éclair', 'banana', 'zebra'];
+words.sort()
+console.log(words)
+
 const orders = [
     {
         customerName: 'Armando',
@@ -30,3 +38,5 @@ const orders = [
     }
 ]
 
+orders.sort((a,b) => b.total - a.total)
+console.log(orders);

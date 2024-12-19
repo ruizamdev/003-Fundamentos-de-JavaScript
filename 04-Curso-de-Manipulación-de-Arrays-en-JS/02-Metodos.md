@@ -276,4 +276,105 @@ console.log(productsV2)
 <br>
 
 ## Sort (mutable)
-Cambia el orden del array original
+Cambia el orden del array original, sin parametros, ordena los elementos de acuerdo a la tabla de caracteres ASCII.
+A continuación planteamos los ejemplos:
+```javascript
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort(); // ordena alfabeticamente
+console.log(months);
+```
+Esto nos da como resultado:
+```javascript
+[ 'Dec', 'Feb', 'Jan', 'March' ]
+```
+El orden sale así debido a la tabla de caracteres ASCII ya que cada letra tiene una designación en los sistemas numericos. 
+
+Otro ejemplo, pero ahora con números:
+```javascript
+const numbers = [1, 30, 4, 21, 100000]
+numbers.sort();
+console.log(numbers)
+```
+```javascript
+[ 1, 100000, 21, 30, 4 ]
+```
+El orden aplicado sigue siendo de acuerdo a la tabla ASCII, para poder ordenar de menor a mayor podemos hacerlo de la siguiente manera:
+```javascript
+numbers.sort((a,b) => a - b);
+console.log(numbers)
+```
+```javascript
+[ 1, 4, 21, 30, 100000 ]
+```
+En esta ocación el orden se aplicó dependendiendo el valor numérico y no la designacón del caracter otorgada por la tabla ASCII
+
+De manera invertida sería así:
+```javascript
+numbers.sort((a,b) => b - a)
+```
+```javascript
+[ 100000, 30, 21, 4, 1 ]
+```
+
+Ejemplo con caracteres especiales:
+```javascript
+const words = ['réservé', 'premier', 'communiqué', 'café', 'adieu', 'éclair', 'banana', 'zebra'];
+words.sort()
+console.log(words)
+```
+```javascript
+[
+  'adieu',
+  'banana',
+  'café',
+  'communiqué',
+  'premier',
+  'réservé',
+  'zebra',
+  'éclair'
+]
+```
+
+Para un array con objetos:
+```javascript
+const orders = [
+    {
+        customerName: 'Armando',
+        total: 600,
+        delivered: true,
+    },
+    {
+        customerName: 'Rebeca',
+        total: 200,
+        delivered: false,
+    },
+    {
+        customerName: 'Jorge',
+        total: 100,
+        delivered: true,
+    },
+    {
+        customerName: 'Carlos',
+        total: 300,
+        delivered: false,
+    },
+    {
+        customerName: 'Miguel',
+        total: 400,
+        delivered: true,
+    }
+]
+
+orders.sort((a,b) => b.total - a.total)
+console.log(orders);
+```
+En este ejemplo se quizo ordenar los objetos de manera descendente de acuerdo al total de cada objeto.
+```javascript
+[
+  { customerName: 'Armando', total: 600, delivered: true },
+  { customerName: 'Miguel', total: 400, delivered: true },
+  { customerName: 'Carlos', total: 300, delivered: false },
+  { customerName: 'Rebeca', total: 200, delivered: false },
+  { customerName: 'Jorge', total: 100, delivered: true }
+]
+```
