@@ -36,3 +36,15 @@ TC39 es el comité técnico responsable del desarrollo y la evolución del lengu
 El comité está compuesto por representantes de varias empresas tecnológicas, incluyendo navegadores, motores de JavaScript y otras organizaciones interesadas en el desarrollo del lenguaje. TC39 se reúne regularmente para discutir propuestas de nuevas características, mejoras y correcciones para el lenguaje, y para avanzar en la especificación ECMAScript.
 
 Las propuestas pasan por varias etapas de revisión y discusión antes de ser aceptadas e incorporadas en una nueva versión del estándar. Esto asegura que las nuevas características sean bien pensadas, discutidas y probadas antes de ser adoptadas oficialmente.
+
+## Versiones de ECMA-262
+
+Version | Nombre oficial | Descripcion
+:---: | :---: | :---:
+ES1 | ECMAScript 1 (1997) | Primera edición
+ES2 | ECMAScript 2 (1998) | Cambios editoriales
+ES3 | ECMAScript 3 (1999) | Se agregaron expresiones regulares <br> se agregó try/catch <br> se agregó switch <br> se agrego do-while
+ES4 | ECMAScript 4 () | Nunca se lanzó
+ES5 | ECMAScript 5 (2009) | Se agrego 'strict mode' <br> se agrego soporte JSON <br> se agrego string.trim() <br> se agrego Array.isArray() <br> se agregaron metodos de iteracion en arrays <br> se agrego el uso de comas inversas para objetos literales (object literals)
+ES6 | ECMAScript 6 (2015) | Se agregaron let y const <br> Se agregaron valores por defecto en los parametros <br> Se agrego Array.find() <br> se agrego array.findIndex()
+
