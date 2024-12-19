@@ -216,3 +216,64 @@ console.log(respuesta4);
 ```
 
 ## Mutable Functions
+Recordatorio de métodos mutables e inmutables
+
+En el siguiente ejemplo vemos como es posible utilizar ambos tipos de métodos (los que mutan y los que no mutan a los arrays).
+
+En este caso tenemos el método findIndex()(inmutable) para poder encontrar un elemento dentro del array y los métodos push()(mutable) para agregar un elemento a un array y slice()(mutable) para eliminar un elemento del array.
+```javascript
+const products = [
+    { title: 'Pizza', price: 121, id: "🍕" },
+    { title: 'Burger', price: 123, id: "🍔" },
+    { title: 'Hot cakes', price: 111, id: "🥞" },
+    { title: 'Hot-dog', price: 234, id: "🌭" },
+    { title: 'Tacos', price: 432, id: "🌮" }
+];
+
+const myProducts = [];
+console.log('products:', products);
+console.log('myProducts:', myProducts);
+console.log("-".repeat(10));
+const productIndex = products.findIndex(item => item.id === "🍔");
+
+if (productIndex !== -1) {
+    myProducts.push(products[productIndex]);
+    products.splice(productIndex, 1);
+}
+
+console.log('products:', products);
+console.log('myProducts:', myProducts);
+console.log("-".repeat(10));
+```
+
+En este otro ejemplo, hacemos un update de un elemento del array agregando un nuevo precio y una descripción por medio del spread operator:
+```javascript
+const productsV2 = [
+    { title: 'Pizza', price: 121, id: "🍕" },
+    { title: 'Burger', price: 123, id: "🍔" },
+    { title: 'Hot cakes', price: 111, id: "🥞" },
+    { title: 'Hot-dog', price: 234, id: "🌭" },
+    { title: 'Tacos', price: 432, id: "🌮" }
+]
+
+const update = {
+    id: "🥞",
+    changes: {
+        price: 200,
+        description: "Deliciosos hot cakes",
+    }
+}
+
+const productIndexV2 = productsV2.findIndex(item => item.id === update.id)
+productsV2[productIndexV2] = {
+    ...productsV2[productIndexV2],
+    ...update.changes,
+}
+
+console.log(productsV2)
+```
+
+<br>
+
+## Sort (mutable)
+Cambia el orden del array original
