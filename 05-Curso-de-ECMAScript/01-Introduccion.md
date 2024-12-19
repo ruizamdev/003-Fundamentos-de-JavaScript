@@ -46,5 +46,15 @@ ES2 | ECMAScript 2 (1998) | Cambios editoriales
 ES3 | ECMAScript 3 (1999) | Se agregaron expresiones regulares <br> se agregó try/catch <br> se agregó switch <br> se agrego do-while
 ES4 | ECMAScript 4 () | Nunca se lanzó
 ES5 | ECMAScript 5 (2009) | Se agrego 'strict mode' <br> se agrego soporte JSON <br> se agrego string.trim() <br> se agrego Array.isArray() <br> se agregaron metodos de iteracion en arrays <br> se agrego el uso de comas inversas para objetos literales (object literals)
-ES6 | ECMAScript 6 (2015) | Se agregaron let y const <br> Se agregaron valores por defecto en los parametros <br> Se agrego Array.find() <br> se agrego array.findIndex()
+ES6 | ECMAScript 2015 | Se agregaron let y const <br> Se agregaron valores por defecto en los parametros <br> Se agrego Array.find() <br> se agrego array.findIndex()
+| | ECMAScript 2016 | Se agrego el operador exponente (**) <br> se agrego Array.includes()
+| | ECMAScript 2017 | Se agrego el string padding <br> se agrego Object.entries() <br> se agrego Object.values() <br> se agregaron las funciones async <br> se agrego la memoria compartida <br> Se permiten las comas inversas para los parametros  de la funciones
+| | ECMAScript 2018 | Se agrego la propiedad rest/spread <br> se agrego la iteracion asincrona <br> se agrego Promise.finally() <br> se sumó a RegExp
+| | ECMAScript 2019 | se agregó String.trimStart() <br> se agregó String.trimEnd() <br> se agregó Array.flat() <br> se agregó Object.fromEntries <br> enlace catch opcional
+| | ECMAScript 2020 | Se agrego el operador Nullish Coalescing (??)
+| | ECMAScript 2021 | se agregó Promise.any() <br> se agrego string replaceAll() <br> se agregó Numeric separators (_)
+| | ECMAScript 2022 | se agregó Array at() <br> String at() <br> RegExp /d <br> Object.hasOwn() <br> error.cause <br> await import <br> class field declarations <br> private methods and fields.
+| | ECMAScript 2023 | Se agregó Array findLast() <br> Array findLastIndex() <br> Array.toReversed() <br> Array toSorted() <br> Array toSpliced() <br> Array with() <br> #!(shebang)
+| | ECMAScript 2024 | se agregó Object.groupBy() <br> Map.groupBy() <br> Temporal.PlainDate() <br> Temporal.PlainTime() <br> Temporal.PlainMonthDay() <br> Temporal.PlainYearMonth()
 
+Hasta ahora de 2021 en adelante se recomiendo trabajar con cuidado las nuevas caracteristicas, revisar si en todos los navegadores o la mayoria ya son compatibles.
