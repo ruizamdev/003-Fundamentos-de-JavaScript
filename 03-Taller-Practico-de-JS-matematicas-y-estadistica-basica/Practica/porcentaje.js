@@ -13,7 +13,7 @@ const cupons = {
     'armandoRuiz': 35,
 }
 
-submitButton.addEventListener('click', (event) => {
+function calcularPrecioConDescuento(){
     const price = Number(inputPrice.value);
     const cupon = inputCupon.value;
     
@@ -28,6 +28,7 @@ submitButton.addEventListener('click', (event) => {
         const priceWithDiscount = price - moneyDiscounted;
         divResult.innerHTML = ` 
             <p>Gracias por usar mi programa</p>
+            <h1>Checa el descuento que obtendras con tu cupon</h1>
             <p>El codigo de tu cupon es: ${cupon}</p>
             <p>El descuento que obtines es de: ${discount}%</p>
             <p>El precio del producto que elegiste es de $${price}</p>
@@ -37,4 +38,4 @@ submitButton.addEventListener('click', (event) => {
     } else {
         divResult.innerHTML = `El cupon ${cupon} no es valido`
     }
-}); 
+}
