@@ -13,14 +13,14 @@ class ListInput extends HTMLElement {
       <h1>Estadistica Basica</h1>
     <h2>Formulas de Estadística Básica</h2>
     <h3>Media, Mediana y Moda</h3>
-    <p>Ingresa tu lista de numeros separados por comas</p>
-    <form>
-        <label for="list">Lista de números:</label>
-        <input type="text" id="list">
-        <button type="submit">Calcular</button>
+    <p>Agrega cada elemento uno por uno, ingresandolo en el recuadro y dando click en agregar elemento</p>
+    <form id="list-input">
+        <label for="elements-input">Elemento:</label>
+        <input type="text" id="elements-input" required>
+        <button type="click" id="agregar">Agregar elemento</button>
+        <button type="click" id="calcular">Calcular</button>
     </form>
     <p id="resultados">
-
     </p>
     ${this.getStyles()}
     `
@@ -36,42 +36,70 @@ class ListInput extends HTMLElement {
     return `
     <style>
       * {
-    text-align: var(--List-Input-Text-Align);
-}
+        text-align: var(--List-Input-Text-Align);
+      }
+      list-input {
+        display: var(--List-Input-Display);
+        flex-direction: var(--List-Input-Flex-Direction);
+      }
+
     </style>
     `
   }
   
   // Others functions
+  startGame(){
+    const form = this.shadowRoot.getElementById('list-input');
+    const paragraphResults = this.shadowRoot.getElementById('resultados');
+    
+    let myArray = [];
+
+    form.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = event.target
+      if (target.id === 'agregar'){
+        let formInput = Number(this.shadowRoot.getElementById('elements-input').value);
+        myArray.push(formInput);
+        form.reset()
+        paragraphResults.innerHTML = `
+          Estos son los objetos de la lista (array):
+          ${myArray}
+        `
+      } else if (target.id === 'calcular') {
+        const secondParagraph = document.createElement('p')
+        secondParagraph.innerText = `
+          La media (Promedio) es de: ${Math.round(calcularPromedio(myArray))}
+          La mediana es de: ${calcularMediana(myArray)}
+        `
+        paragraphResults.appendChild(secondParagraph)
+      } else {
+        return;
+      }
+    })
+    
+  }
+
 
   // Render
   render(){
     document.head.appendChild(this.putVariables());
     this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
+    this.startGame();
   }
   connectedCallback(){
     this.render();
   }
 }
-customElements.define('list-input', ListInput)
-
-// 
-document.addEventListener('DOMContentLoaded') {
-
-}
-
+customElements.define('list-input', ListInput);
 
 // PROMEDIO
-function calcularPromedio(lista){
+function calcularPromedio(listArray){
     // suma de los elementos de un array
-    const sumaLista = lista.reduce((a,b) => a + b);
+    const sumaLista = listArray.reduce((a,b) => a + b);
 
     // promedio
-    const promedio = sumaLista / lista.length;
-    alert(`
-      Lista de objetos: ${lista}
-      Promedio: ${promedio}
-      `)
+    const promedio = sumaLista / listArray.length;
+    return promedio;
 }
 
 // MEDIANA
@@ -93,12 +121,7 @@ function calcularMediana(lista){
     // ...
     const indexMitadListaImpar = Math.floor(lista.length / 2);
     const medianaListaImpar = lista[indexMitadListaImpar];
-    console.log(indexMitadListaImpar);
-    console.log(medianaListaImpar);
-    alert(`
-      Lista de objetos: ${lista}.
-      Mediana: ${medianaListaImpar}.
-    `)
+    
     return medianaListaImpar;
   }
 }

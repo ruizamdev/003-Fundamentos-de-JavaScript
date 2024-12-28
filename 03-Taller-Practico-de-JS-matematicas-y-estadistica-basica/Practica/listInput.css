@@ -1,3 +1,7 @@
 :root {
+    --List-Input-Display: flex;
+    --List-Input-Flex-Direction: column;
+    --List-Input-Justify-Content: center;
+    --List-Input-Align-Items: center;
     --List-Input-Text-Align: center;
 }
