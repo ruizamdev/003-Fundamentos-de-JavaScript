@@ -67,16 +67,20 @@ class ListInput extends HTMLElement {
         `
       } else if (target.id === 'calcular') {
         const secondParagraph = document.createElement('p')
+        const list = myArray.sort((a,b)=>a-b);
         secondParagraph.innerText = `
+          Lista ordenada automaticamente: ${list}.
+          Cantidad de elementos en la lista: ${list.length}
+
           La media (Promedio) es de: ${Math.round(calcularPromedio(myArray))}
           La mediana es de: ${calcularMediana(myArray)}
+          La moda es de: ${calcularModa(myArray)}
         `
         paragraphResults.appendChild(secondParagraph)
       } else {
         return;
       }
     })
-    
   }
 
 
@@ -103,26 +107,41 @@ function calcularPromedio(listArray){
 }
 
 // MEDIANA
-function esPar(lista){
-  return !(lista.length % 2);
+function esPar(list){
+  return !(list.length % 2);
 }
-function calcularMediana(lista){
-  const listaSorted = lista.sort((a,b)=>a-b)
-  console.log(listaSorted)
-  const listaEsPar = esPar(lista);
+function calcularMediana(list){
+  const listSorted = list.sort((a,b)=>a-b)
+  console.log(listSorted)
+  const listEsPar = esPar(list);
   
-  if (listaEsPar){
+  if (listEsPar){
     // ...
-    const Mitad1ListaPar = lista[(lista.length / 2) - 1];
-    const Mitad2ListaPar = lista[lista.length / 2];
-    const listaMitades = [Mitad1ListaPar, Mitad2ListaPar];
-    calcularPromedio(listaMitades)
+    const Mitad1ListaPar = list[(list.length / 2) - 1];
+    const Mitad2ListaPar = list[list.length / 2];
+    const listMitades = [Mitad1ListaPar, Mitad2ListaPar];
+    calcularPromedio(listMitades)
   } else {
     // ...
-    const indexMitadListaImpar = Math.floor(lista.length / 2);
-    const medianaListaImpar = lista[indexMitadListaImpar];
+    const indexMitadListaImpar = Math.floor(list.length / 2);
+    const medianaListaImpar = list[indexMitadListaImpar];
     
     return medianaListaImpar;
   }
+}
+
+// MODA
+function calcularModa(list){
+  const listCount = {};
+  for (let i = 0; i < list.length; i++){
+    const element = list[i];
+    if (listCount[element]){
+      listCount[element] += 1;
+    } else {
+      listCount[element] = 1;
+    }
+  }
+  console.log(listCount); 
+  
 }
 
