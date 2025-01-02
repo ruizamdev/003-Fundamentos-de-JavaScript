@@ -111,21 +111,18 @@ function esPar(list){
   return !(list.length % 2);
 }
 function calcularMediana(list){
-  const listSorted = list.sort((a,b)=>a-b)
+  const listSorted = list.sort((a, b) => a - b)
   console.log(listSorted)
   const listEsPar = esPar(list);
   
   if (listEsPar){
-    // ...
     const Mitad1ListaPar = list[(list.length / 2) - 1];
     const Mitad2ListaPar = list[list.length / 2];
     const listMitades = [Mitad1ListaPar, Mitad2ListaPar];
-    calcularPromedio(listMitades)
+    return calcularPromedio(listMitades)
   } else {
-    // ...
     const indexMitadListaImpar = Math.floor(list.length / 2);
     const medianaListaImpar = list[indexMitadListaImpar];
-    
     return medianaListaImpar;
   }
 }
