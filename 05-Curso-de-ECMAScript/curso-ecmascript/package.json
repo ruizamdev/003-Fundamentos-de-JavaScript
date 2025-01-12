@@ -11,5 +11,6 @@
     "ecmascript"
   ],
   "author": "Armando Ruiz <artmx@proton.me>",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

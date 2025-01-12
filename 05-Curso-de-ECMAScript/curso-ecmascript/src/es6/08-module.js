@@ -1,2 +1,3 @@
-import hello from "./module";
+import hello from "./module.js";
+
 hello();
