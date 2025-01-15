@@ -1,2 +1,4 @@
 # Ignoring project clone 
 javascript-dom/
+# Ignore node_modules
+./node_modules/
