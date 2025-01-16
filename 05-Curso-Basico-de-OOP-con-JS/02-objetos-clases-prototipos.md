@@ -1,4 +1,109 @@
-// esto es un objeto literal, heredan la propiedad __proto__ del Prototipo Objetct
+# Objetos, clases y prototipos
+
+## Que es un objeto en JavaScript
+
+Todos los lenguajes de programacion tienen tipos y estructuras de datos.
+
+Array en JavaScript:
+
+```javascript
+const student_platziRank = [
+  'Juan',
+  'Juanita',
+  'Nath',
+  'Nora',
+  'Luisa',
+]
+```
+
+Array en PHP:
+
+```php
+$student_platzirank = [
+  "Juan",
+  "Juanita",
+  "Nath",
+  "Nora",
+  "Luisa",
+]
+```
+
+Array asociativo en PHP:
+
+```php
+$student_platzirank = [
+  "Juan" => 110,
+  "Juanita" => 300,
+  "Nath" => 700,
+  "Nora" => 150,
+  "Luisa" => 0,
+]
+```
+
+Array asociativo en Python:
+
+```python
+student_platzirank = {
+  'Juan': 100,
+  'Juanita': 300,
+  'Nath': 700,
+  'Nora': 150,
+  'Luisa': 0,
+}
+```
+
+Objeto Literal en JavaScript:
+
+```javascript
+const student_platzirank = {
+  'Juan': 110,
+  'Juanita': 300,
+  'Nath': 700,
+  'Nora': 150,
+  'Luisa': 0
+}
+```
+
+Los objetos literales no son lo mismo que los objetos de la OOP (de las instancias y clases)
+
+### Objetos en lenguajes de programacion que admiten la OOP basada en clases
+
+```php
+class Student {
+  public $name = 'Nombre';
+  public $age = 18;
+  public $points = 750;
+}
+
+$juanita = new Student;
+```
+
+```python
+class Student:
+    name = 'Nombre'
+    age = 18
+    points = 750
+
+juanita = Student();
+```
+
+```javascript
+function Student() {
+  this.name = 'Nombre';
+  this.age = 18;
+  this.pints = 750;
+}
+
+const juanita = new Student();
+```
+
+## Objetos literales y Prototipos en JavaScript
+
+### Objetos Literales
+
+Esto es un objeto literal, heredan la propiedad `__proto__` del Prototipo Objetct
+
+```javascript
 const natalia = {
   name: "Natalia",
   age: 20,
@@ -14,13 +119,16 @@ const natalia = {
   }
 };
 
-
 // Hacer que natalia apruebe otro curso
 
 natalia.cursosAprobados.push("Curso de Responsive Design");
+```
 
+### Prototipos
 
-// Prototipo
+Esto sería un prototipo en javascript:
+
+```javascript
 function Student ( name, age, cursosAprobados ) {
   this.name = name
   this.age = age
@@ -41,9 +149,13 @@ const juanita = new Student(
     "Curso de creación de personajes"
   ]
 )
+```
 
-// Prototipos con la sintaxis de clases
+## Clases en JavaScript
 
+Sintaxis mas amigable para trabajar con prototipos, las clases por dentro son prototipos.
+
+```javascript
 class Teacher {
   constructor ( {
     name,
@@ -73,11 +185,22 @@ const miguel = new Teacher ({
   age: 34,
   email: "miguel.angel@gmail.com"
 })
+```
 
-// RoRo = Recive object - Return object
+En este ejemplo se muestra el constructo RoRo (Receive object - Return object), en el que en vez de enviar numerosos parametros, solamente mandamos un objeto con todos los paremtros dentro. asi evitamos tener que indicar valores null o undefined en caso de no enviar algun parametro.
 
-// objetos literales
-/* const Armando = {
+## Ventajas de la OOP en JS
+
+Reutilizar código.
+
+### Diferencia entre objetos literales y prototipos
+
+#### Objetos literales
+
+Manera inescalable de programar
+
+```javascript
+const Armando = {
   name: "Armando Ruiz",
   username: "ruiz7am",
   points: 7799,
@@ -133,9 +256,12 @@ const Miguel = {
       ]
     }
   ]
-} */
+}
+```
 
-// Prototipos
+Con OOP facilitamos la creación de objetos en JS.
+
+```javascript
 class Estudiante {
   constructor ( {
     name,
@@ -168,72 +294,6 @@ const Silverio = new Student ( {
   instagram: "DonSilver",
   twitter: "DonSilver",
 } )
+```
 
-class Class {
-  constructor ( {
-    name,
-  } ) {
-    this.name = name;
-  }
-}
-
-class Course {
-  constructor ( {
-    name,
-  } ) {
-    this.name = name;
-  }
-} 
-class LearningPath {
-  constructor ( {
-    name,
-    courses = [],
-  } ) {
-    this.name = name;
-    this.courses = courses;
-  }
-}
-
-const escuelaWeb = new LearningPath ( {
-  name: "Escuela de Desarrollo Web",
-  courses: [
-    "Curos de Frontend Developer",
-    "Curso Práctico de Frontend Developer",
-    "Curso Definitivo de HTML y CSS",
-    "Curso Practico de HTML y CSS"
-  ]
-} )
-
-const escuelaJs = new LearningPath ( {
-  name: "Fundamentos de JavaScript",
-  courses: [
-    "Fundamentos de Javascript",
-    "Closure y Scope con Javascript",
-    "Estructuras de datos con Javascript",
-    "Manipulación de Arrays en Javascript",
-    "Curso Basico de Programación Orientada a Objetos"
-  ]
-} )
-
-const escuelaFrontendJs = new LearningPath ( {
-  name: "Frontend con Javascript",
-  courses: [
-    "Manipulación del DOM",
-    "API REST",
-    "Web Components",
-    "Debugging con Chrome DevTools",
-    "Testing con Javascript"
-  ]
-} )
-
-const cursoProgBasica = new Course ( {
-  name: "Curso Gratis de Programación Básica",
-} )
-
-const cursoFrontendDev = new Course ( {
-  name: "Curos de Frontend Developer",
-} )
-
-const cursoPracticoFrontendDev = new Course ( {
-  name: "Curso Práctico de Frontend Developer",
-} )
+Con esto podemos crear infinidad de objetos del prototipo student de una manera mas agil.
