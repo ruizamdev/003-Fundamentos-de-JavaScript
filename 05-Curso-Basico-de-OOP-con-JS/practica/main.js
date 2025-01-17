@@ -21,7 +21,7 @@ natalia.cursosAprobados.push("Curso de Responsive Design");
 
 
 // Prototipo
-function Student ( name, age, cursosAprobados ) {
+function Student1 ( name, age, cursosAprobados ) {
   this.name = name
   this.age = age
   this.cursosAprobados = cursosAprobados
@@ -33,14 +33,14 @@ function Student ( name, age, cursosAprobados ) {
   }
 }
 
-const juanita = new Student(
-  "Juanita Alejandra",
-  15,
-  [
-    "Curso de introducción a la producción de VideoJuegos",
-    "Curso de creación de personajes"
-  ]
-)
+// const juanita = new Student(
+//   "Juanita Alejandra",
+//   15,
+//   [
+//     "Curso de introducción a la producción de VideoJuegos",
+//     "Curso de creación de personajes"
+//   ]
+// )
 
 // Prototipos con la sintaxis de clases
 
@@ -136,7 +136,7 @@ const Miguel = {
 } */
 
 // Prototipos
-class Estudiante {
+class Student {
   constructor ( {
     name,
     email,
@@ -160,7 +160,42 @@ class Estudiante {
     }
 }
 
-const Silverio = new Student ( {
+class FreeStudent extends Student {
+  constructor ( props ) {
+    super( props ); // super nos permite referenciar o llamar al constructor del prototipo madre
+  }
+  approveCourse ( newCourse ) {
+    if (newCourse.isFree) {
+      this.approvedCourses.push(newCourse);
+    } else {
+      console.warn("Lo sentimos, " + this.name + " solo puedes tomar cursos gratis")
+    }
+  }
+}
+
+class BasicStudent extends Student {
+  constructor ( props ) {
+    super( props ); // super nos permite referenciar o llamar al constructor del prototipo madre
+  }
+  approveCourse ( newCourse ) {
+    if (newCourse.lang !== "english") {
+      this.approvedCourses.push(newCourse);
+    } else {
+      console.warn("Lo sentimos, " + this.name + " no puedes tomar cursos de inglés")
+    }
+  }
+}
+
+class ExpertStudent extends Student {
+  constructor ( props ) {
+    super( props ); // super nos permite referenciar o llamar al constructor del prototipo madre
+  }
+  approveCourse ( newCourse ) {
+    this.approvedCourses.push(newCourse);
+  }
+}
+
+const silverio = new FreeStudent ( {
   name: "Silverio Durango",
   username: "DonSilver",
   email: "silver.don@proton.me",
@@ -168,6 +203,21 @@ const Silverio = new Student ( {
   instagram: "DonSilver",
   twitter: "DonSilver",
 } )
+
+const irina = new BasicStudent ( {
+  name: "Irina Mariscal Hernández",
+  username: "nina",
+  email: "ninorris.ninuchis@ninimail.com"
+} )
+
+const armando = new ExpertStudent ({
+  name: "Armando Mariscal Ruiz",
+  username: "rambo",
+  email: "artmx@proton.me",
+  facebook: "Armando Ruiz",
+  instagram: "ruiz7am",
+  twitter: "ruiz7am"
+})
 
 class Class {
   constructor ( {
@@ -177,13 +227,58 @@ class Class {
   }
 }
 
+function videoPlay (id) {
+  const urlSecreta  = "https://platzi-secreto.com/" + id;
+  console.log ( "Se esta reproduciendo desde la url " + urlSecreta )
+}
+
+function videoStop ( id ) {
+  const urlSecreta  = "https://platzi-secreto.com/" + id;
+  console.log ( "Se pausó el video desde la url " + urlSecreta )
+}
+
+// 
+
+class PlatziClass {
+  constructor ({
+    name,
+    videoID,
+  }) {
+    this.name = name;
+    this.videoID = videoID;
+  }
+  reproducir () {
+    videoPlay ( this.videoID );
+  }
+  pausar () {
+    videoStop ( this.videoID )
+  }
+}
+
 class Course {
   constructor ( {
     name,
+    classes = [],
+    isFree = false,
+    lang = "spanish",
   } ) {
-    this.name = name;
+    this._name = name;
+    this.classes = classes;
+    this.isFree = isFree;
+    this.lang = lang;
   }
-} 
+  get name () {
+    return this._name;
+  }
+  set name ( nuevoNombre ) {
+    if ( nuevoNombre === "Curso malito de Programación Básica" ) {
+      console.log( "Web... no" )
+    } else {
+      this._name = nuevoNombre;
+    }
+  }
+}
+
 class LearningPath {
   constructor ( {
     name,
@@ -228,12 +323,17 @@ const escuelaFrontendJs = new LearningPath ( {
 
 const cursoProgBasica = new Course ( {
   name: "Curso Gratis de Programación Básica",
+  isFree: true,
+
 } )
+
 
 const cursoFrontendDev = new Course ( {
   name: "Curos de Frontend Developer",
+  lang: "english",
 } )
 
 const cursoPracticoFrontendDev = new Course ( {
   name: "Curso Práctico de Frontend Developer",
 } )
+
