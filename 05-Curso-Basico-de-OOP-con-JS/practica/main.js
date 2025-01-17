@@ -157,7 +157,14 @@ class Student {
     };
     this.approvedCourses = approvedCourses;
     this.learningPaths = learningPaths;
-    }
+  }
+  publicarComentario (commentContent) {
+    const comment = new Comment({
+      content: commentContent,
+      studentName: this.name,
+    })
+    comment.publicar();
+  }
 }
 
 class FreeStudent extends Student {
@@ -336,4 +343,46 @@ const cursoFrontendDev = new Course ( {
 const cursoPracticoFrontendDev = new Course ( {
   name: "Curso Práctico de Frontend Developer",
 } )
+
+class Comment {
+  constructor ({
+    content,
+    studentName,
+    studentRole = "estudiante",
+  }) {
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+  publicar() {
+    console.log(`${this.studentName} (${this.studentRole})`)
+    console.log(`${this.likes} likes`);
+    console.log(`${this.content}`)
+  }
+}
+
+class TeacherStudent extends Student {
+  constructor ( props ) {
+    super( props ); // super nos permite referenciar o llamar al constructor del prototipo madre
+  }
+  approveCourse ( newCourse ) {
+    this.approvedCourses.push(newCourse);
+  }
+  publicarComentario (commentContent) {
+    const comment = new Commnet({
+      content: commentContent,
+      studentName: this.name,
+      studentRole: "Profesor",
+    })
+    comment.publicar();
+  }
+}
+
+const freddy = new TeacherStudent({
+  name: "Freddy Vega",
+  username: "@freddier",
+  email: "freddy@platzi.com",
+  instagram: "freddier",
+})
 

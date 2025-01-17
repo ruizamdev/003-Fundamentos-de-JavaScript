@@ -259,3 +259,15 @@ class ExpertStudent extends Student {
 ```
 
 ## Polimorfismo
+
+El polimorfismo es como la herencia pero con la capacidad de cambiar o anular el comportamiento de los métodos o que heredaron de una clase madre.
+
+### Tipos de polimorfismo
+
+- Sobrecarga
+- Paramétrico
+- Inclusión
+
+```javascript
+
+```
