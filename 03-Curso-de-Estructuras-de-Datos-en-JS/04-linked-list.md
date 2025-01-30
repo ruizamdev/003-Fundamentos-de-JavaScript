@@ -29,3 +29,5 @@ Como podemos ver, tenemos el _**head**_ y por debajo de el una variable que cont
 ### Como se guardan las linked list en memoria
 
 ![linked-list-ram](./assets/Screenshot%202025-01-29%20175302.png)
+
+En la imagen vemos los nodos guardados en distintos espacios de memoria no consecutivos, la memoria no conoce las direcciones de los nodos mas que la de el head, Tienen que recorrer todos los nodos para accesar a cualquier nodo que este en medio de head y tail.
