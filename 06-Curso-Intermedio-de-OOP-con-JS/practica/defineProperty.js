@@ -37,5 +37,6 @@ Object.defineProperty(Juan, "pruebaNasa", {
   configurable: false,
 })
 
-console.log(Object.getOwnPropertyDescriptors(Juan));
+Object.freeze(Juan);
 
+console.log(Object.getOwnPropertyDescriptors(Juan));

@@ -184,6 +184,9 @@ Object.defineProperty(Juan, "pruebaNasa", {
 
 En seguida iremos explicando para que sirve cada uno de los parámetros **writable**, **enumerable** y **configurable**
 
+
+### Enumerable
+
 Si ejecutamos nuestro método `keys` al objeto `Juan`:
 
 ```javascript
@@ -218,5 +221,43 @@ console.log(Object.getOwnPropertyNames(Juan));
 // 7: "pruebaNasa"
 ```
 En la salida podemos ver que los **enumerable** false que declaramos si se muestran.
-Y aquí está una pequña diferencia de los métodos `keys` y `getOwnPropertyNames`.
+Y aquí está una pequeña diferencia de los métodos `keys` y `getOwnPropertyNames`.
 
+### Writable
+
+Si quisieramos editar por ejemplo la propiedad _editor_:
+
+```javascript
+Juan.editor = 'Atom';
+console.log(Juan.editor)
+// output:
+// VSCode
+```
+
+Vemos que el cambio a surtido efecto, esto es por el atributo _**writable**_ que lo tenemos en false en esta propiedad.
+
+### Configurable
+
+En el caso de _terminal_:
+
+```javascript
+Juan.terminal = 'Bash';
+console.log(Juan.terminal);
+// output:
+// Bash
+delete Juan.terminal
+// output:
+// false
+```
+
+Si que podemos modificarlo pero no borrarlo, esto por el atributo _**configurable**_ en false
+
+### Object.seal y Object.freeze
+
+Object.seal nos ayuda a colocar el atributo _configurable_ en false a todas las propiedades del objeto que se le da por parámetro.
+
+```javascript
+Object.seal(Juan)
+```
+
+Object.freeze, igual que object.seal, pone el atributo _configurable_ en false, pero también coloca el atributo _writable_ en false.
