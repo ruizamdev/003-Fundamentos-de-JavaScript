@@ -134,6 +134,10 @@ class MySinglyLinkedList {
 
 ## Doubly linked list
 
-Estas listas es posible iterar tanto de la cabeza a la cola como de la cola a la cabeza
+Estas listas es posible iterar tanto de la cabeza a la cola como de la cola a la cabeza para buscar un dato
 
 ![doubly](./assets/Screenshot%202025-01-31%20195907.png)
+
+```javascript
+
+```
