@@ -31,3 +31,109 @@ Como podemos ver, tenemos el _**head**_ y por debajo de el una variable que cont
 ![linked-list-ram](./assets/Screenshot%202025-01-29%20175302.png)
 
 En la imagen vemos los nodos guardados en distintos espacios de memoria no consecutivos, la memoria no conoce las direcciones de los nodos mas que la de el head, Tienen que recorrer todos los nodos para accesar a cualquier nodo que este en medio de head y tail.
+
+
+## Agrgando nodos a la lista
+
+```javascript
+class Node {
+  constructor (value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class MySinglyLinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+    }
+    this.tail =  this.head;
+
+    this.length = 1;
+  }
+  append(value){
+    const newNode = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
+  prepend(value){
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
+}
+
+let myLinkedList = new MySinglyLinkedList(1);
+console.log(myLinkedList);
+myLinkedList.append(2);
+console.log(myLinkedList);
+myLinkedList.append(3);
+console.log(myLinkedList);
+myLinkedList.prepend(0);
+console.log(myLinkedList)
+```
+
+## Agregar nodos intermedios
+
+Veremos una forma de agregar nodos entre el head y el tail
+
+```javascript
+class MySinglyLinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+    }
+    this.tail =  this.head;
+
+    this.length = 1;
+  }
+  append(value){
+    const newNode = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
+  prepend(value){
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
+  insert(index, value){
+    if(index >= this.length) {
+      return this.append(value)
+    }
+    const newNode = nes Node(value);
+    const firstPointer = this.getTheIndex(index - 1)
+    const holdingPointer = firstPointer.next;
+    firstPointer.next = newNode;
+    newNode.next = holdingPointer;
+
+    this.length++;
+    return this;
+  }
+  getTheIndex(index){
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index){
+      cunrrentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+}
+```
+
+## Doubly linked list
+
+Estas listas es posible iterar tanto de la cabeza a la cola como de la cola a la cabeza
+
+![doubly](./assets/Screenshot%202025-01-31%20195907.png)
