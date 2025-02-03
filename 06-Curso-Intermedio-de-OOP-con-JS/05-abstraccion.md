@@ -127,4 +127,6 @@ Object.freeze(juan); // ninguna propiedad se puede cambiar/modificar
 Object.isFrozen(juan); // output: true
 ```
 
-## Module pattern y namespaces
+## Module pattern y namespaces`
+
+Recordemos que JS es un lenguaje de programación debilmente tipado, es decir que no tenemos que definir el tipo de las variables, puede ser cualquiera, integer, float, string, bigint, smallint, etc. 
