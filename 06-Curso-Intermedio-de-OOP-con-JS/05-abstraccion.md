@@ -127,6 +127,133 @@ Object.freeze(juan); // ninguna propiedad se puede cambiar/modificar
 Object.isFrozen(juan); // output: true
 ```
 
-## Module pattern y namespaces`
+## Module pattern y namespaces
 
-Recordemos que JS es un lenguaje de programación debilmente tipado, es decir que no tenemos que definir el tipo de las variables, puede ser cualquiera, integer, float, string, bigint, smallint, etc. 
+Recordemos que JS es un lenguaje de programación debilmente tipado, es decir que no tenemos que definir el tipo de las variables, puede ser cualquiera, integer, float, string, bigint, smallint, etc.
+
+```javascript
+function requiredParam(param){
+  throw new Error(`${param} es obligatorio`);
+}
+
+function createStudent({
+  name = requiredParam("Nombre"),
+  age,
+  email = requiredParam("correo electrónico"),
+  facebook,
+  instagram,
+  twitter,
+  approvedCourses = [],
+  learningPaths = [],
+} = {}){
+
+  // validacion privada
+  const private = {
+    "_name": name,
+  };
+
+  // validacion publica
+  const public = {
+    age,
+    email,
+    approvedCourses,
+    learningPaths,
+    socialMedia: {
+      facebook,
+      instagram,
+      twitter,
+    },
+    readName() {
+      return private["_name"];
+    },
+    changeName(newName) {
+      if (newName == "Pendejazo"){
+        console.log("hey no te puedes poner Pendejazo! campeón!")
+      }
+      private.name = newName;
+    },
+  };
+
+  Object.defineProperty(public, "readName", {
+    writable: false,
+    configurable: false,
+  });
+
+  Object.defineProperty(public, "changeName", {
+    writable: false,
+    configurable: false,
+  });
+
+  return public;
+}
+
+const armando = createStudent(
+  {name: "Armando", email: "ruiz7am@outlook.com", age: 30}
+);
+```
+
+## Getters & Setters
+
+```javascript
+function requiredParam(param){
+  throw new Error(`${param} es obligatorio`);
+}
+
+function createStudent({
+  name = requiredParam("Nombre"),
+  age,
+  email = requiredParam("correo electrónico"),
+  facebook,
+  instagram,
+  twitter,
+  approvedCourses = [],
+  learningPaths = [],
+} = {}){
+
+  // validacion privada
+  const private = {
+    "_name": name,
+  };
+
+  // validacion publica
+  const public = {
+    age,
+    email,
+    approvedCourses,
+    learningPaths,
+    socialMedia: {
+      facebook,
+      instagram,
+      twitter,
+    },
+    get name(){
+      return private["_name"];
+    },
+    set name(newName){
+      if(newName.length != 0){
+        private["_name"] = newName;
+      } else {
+        console.warn("Tu nombre debe tener al menos un caracter")
+      }
+      return private["_name"];
+    }
+  };
+
+  Object.defineProperty(public, "readName", {
+    writable: false,
+    configurable: false,
+  });
+
+  Object.defineProperty(public, "changeName", {
+    writable: false,
+    configurable: false,
+  });
+
+  return public;
+}
+
+const armando = createStudent(
+  {name: "Armando", email: "ruiz7am@outlook.com", age: 30}
+);
+```
+

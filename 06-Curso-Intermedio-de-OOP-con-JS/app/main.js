@@ -1,41 +1,140 @@
-const Juan = {
-  name: "Juanito",
-  age: 18,
-  approvedCourses: ["Curos 1"],
-  addCourse(newCourse) {
-    console.log('This', this);
-    console.log('this.approvedCourses', this.approvedCourses)
-    this.approvedCourses.push(newCourse);
-  }
+function isObject(subject){
+  return typeof subject == "object";
 }
 
-// Acceso a atributos y métodos de manera normal
+function isArray(subject){
+  return Array.isArray(subject);
+}
 
-/* console.log(Juan.name)
-console.log(Juan.age)
-console.log(Juan.approvedCourses)
-console.log(Juan.addCourse("Curso 2"))
-console.log(Juan.approvedCourses) */
+function deepCopy (subject) {
+  let copySubject;
 
-// Acceso a atributos y métodos a través de måtodos estáticos del prototipo padre Object
+  const subjectIsObject = isObject(subject);
+  const subjectIsArray = isArray(subject);
 
-/* console.log(Object.keys(Juan));
-console.log(Object.getOwnPropertyNames(Juan));
-console.log(Object.entries(Juan));
-console.log(Object.entries(Juan)[3])
-console.log(Object.entries(Juan)[3][0])
-console.log(Object.entries(Juan)[3][1])
-console.log(Object.entries(Juan)[3][1]('Curso 2')) */
-console.log(Object.getOwnPropertyDescriptors(Juan))
+  if (subjectIsArray) {
+    copySubject = [];
+  } else if (subjectIsObject) {
+    copySubject = {};
+  } else {
+    return subject;
+  }
 
-// formas convencionales de agregar atributos o métodos nuevos a los objetos
-/* Juan.nuevaPropiedad = "Algo";
-Juan["nuevaPropiedad"] = "Algo"; */
+  for (key in subject) {
+    const keyIsObject = isObject(usbject[key]);
 
-// En este caso no trabajaremos así con métodos estáticos.
-Object.defineProperty(Juan, "pruebaNASA", {
-  value: "Extraterrestres",
-  enumerable: true,
-  writable: true,
-  configurable: true,
-})
+    if (keyIsObject) {
+      copySubject[key] = deepCopy(subject[key]);
+    } else {
+      if(subjectIsArray) {
+        copySubject.push(subject[key])
+      } else {
+        copySubject[key] = subject[key];
+      }
+    }
+  }
+
+  return copySubject;
+
+}
+
+function SuperObject() {}
+SuperObject.isObject = function (subject) {
+  return typeof subject == "object";
+}
+SuperObject.deepCopy = function (subject) {
+  let copySubject;
+
+  const subjectIsObject = isObject(subject);
+  const subjectIsArray = isArray(subject);
+
+  if(subjectIsArray) {
+    copySubject = [];
+  } else if (subjectIsObject) {
+    copySubject = {};
+  } else {
+    return subject;
+  }
+
+  for (key in subject) {
+    const keyIsObject = isObject(subject[key]);
+
+    if (keyIsObject) {
+      copySubject[key] = deepCopy(subject[key]);
+    } else {
+      if (subjectIsArray) {
+        copySubject.push(subject[key]);
+      } else {
+        copySubject[key] = subject[key];
+      }
+    }
+  }
+
+  return
+
+}
+
+function requiredParam(param){
+  throw new Error(`${param} es obligatorio`);
+}
+
+function LearningPath({
+  name = requiredParam("name"),
+  courses = [],
+}) {
+  this.name = name;
+  this.courses = courses;
+}
+
+function Student({
+  name = requiredParam("name"),
+  email = requiredParam("email"),
+  age,
+  twitter,
+  instagram,
+  facebook,
+  approvedCourses = [],
+  learningPaths = [],
+} = {}) {
+  this.name = name;
+  this.email = email;
+  this.age = age;
+  this.approvedCourses = approvedCourses;
+  this.socialMedia = {
+    twitter,
+    instagram,
+    facebook,
+  };
+
+  const private = {
+    "_learningPaths": [],
+  };
+
+  Object.defineProperty(this, "learningPaths", {
+    get() {
+      return private["_learningPaths"];
+    },
+    set(newLp) {
+      if (newLp instanceof LearningPath) {
+        private["_learningPaths"].push(newLp);
+      } else {
+        console.warn("Alguno de los Learning Paths no es una instancia del prototipo LearningPath");
+      }
+    },
+  })
+
+  for (learningPathIndex in learningPaths) {
+    this.learningPaths = learningPaths[learningPathIndex];
+  } 
+}
+
+const escuelaWeb = new LearningPath({name: "Escuela de Desarrollo Web"});
+const escuelaData = new LearningPath({name: "Escuela de Data Science"});
+const juan = new Student({
+  email: "juanito@frijolitos.co",
+  name: "Juanito",
+  learningPaths: [
+    escuelaWeb,
+    escuelaData,
+  ],
+});
