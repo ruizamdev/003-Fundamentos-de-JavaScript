@@ -45,13 +45,21 @@ function space() {
 
 ## XMLHTTPRequest
 
+Este módulo contiene un Objeto de JavaScript que permite hacer peticiones a servicios en la nube (URLs o APIs)
+
+Para hacer uso de este recurso necesitamos instalarlo en la linea de comandos:
+
+```sh
+npm i xmlhttprequest
+```
+
 ```javascript
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const API = 'https://api.escuelajs.co/api/v1';
 
 function fetchData(urlApi, callback){
   let xhttp = new XMLHttpRequest();
-
+  // El método open del objeto XMLHttpRequest, abre una conexión entre el cliente y la url que se le da por parámetro, los parámetros son el tipo de solicitud (GET, POST, DELETE), la url y el último valor es booleano el cual indica si la peticion será asíncrona o no.
   xhttp.open('GET', urlApi, true);
   xhttp.onreadystatechange = function(event){
     if(xhttp.readystate === 4) {
@@ -83,3 +91,9 @@ fetchData(`${API}/products`, function (error1, data1) {
   });
 });
 ```
+
+## Callback Hell
+
+Practicamente es lo que hicimos en el código anterior, anidamos recursivamente la función `fetchData()`, con todo y callback
+
+Formas arcaicas, aun vigentes por retrocompatibilidad.
