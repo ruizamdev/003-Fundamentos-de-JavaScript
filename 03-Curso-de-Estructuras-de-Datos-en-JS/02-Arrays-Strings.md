@@ -2,7 +2,7 @@
 
 ## Arrays
 
-Array o lista, es una coleccion de informacion o datos, que podemos utilizar o modificar. En JS existen metodos para poder manipularlos.
+Array o lista, es una coleccion de informacion o datos, que podemos utilizar o modificar. En JS los arrays son dinámicos y existen metodos para poder manipularlos.
 
 Existen dos tipos de arrays: Estaticos y Dinamicos. Con los estaticos se asigna una sola vez el espacio en memoria a utilizar, imposible de modificar despues.
 
