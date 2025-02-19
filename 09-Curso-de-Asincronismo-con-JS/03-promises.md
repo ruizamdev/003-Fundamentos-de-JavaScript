@@ -2,6 +2,8 @@
 
 ## ¿Qué son las promesas?
 
+> El objeto _Promise_ representa la eventual realización satisfactoria (o falla) de una operación asíncrona y su valor resultante. _**MDN web docs**_
+
 ```javascript
 const promise = new Promise(function(resolve, reject){
   resolve('Resolved!')
