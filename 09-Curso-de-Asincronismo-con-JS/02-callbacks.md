@@ -49,7 +49,7 @@ Este módulo contiene un Objeto de JavaScript que permite hacer peticiones a ser
 
 Para hacer uso de este recurso necesitamos instalarlo en la linea de comandos:
 
-```sh
+```shell
 npm i xmlhttprequest
 ```
 
