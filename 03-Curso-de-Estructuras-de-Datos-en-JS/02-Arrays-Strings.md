@@ -2,11 +2,11 @@
 
 ## Arrays
 
-Array o lista, es una coleccion de informacion o datos, que podemos utilizar o modificar. En JS los arrays son dinámicos y existen metodos para poder manipularlos.
+Array o lista, es una colección de información o datos, que podemos utilizar o modificar. En JS los arrays son dinámicos y existen métodos para poder manipularlos.
 
-Existen dos tipos de arrays: Estaticos y Dinamicos. Con los estaticos se asigna una sola vez el espacio en memoria a utilizar, imposible de modificar despues.
+Existen dos tipos de arrays: Estáticos y Dinámicos. Con los estáticos se asigna una sola vez el espacio en memoria a utilizar, imposible de modificar después.
 
-Con los dinamicos es posible asignar mas espacio en memoria del requrido en un principio, y es posible borrar y reescribir.
+Con los dinámicos es posible asignar mas espacio en memoria del requerido en un principio, y es posible borrar y reescribir.
 
 ### Construyendo un Array
 
@@ -17,9 +17,9 @@ array.push("Joaquin")
 console.log(array)
 ```
 
-### Replicando Metodos comunes en JS
+### Replicando Métodos comunes en JS
 
-#### Metodos get y push
+#### Métodos get y push
 
 ```javascript
 class MyArray {
@@ -50,7 +50,7 @@ pop () {
   }
 ```
 
-Codigo completo:
+Código completo:
 
 ```javascript
 class MyArray {
@@ -91,4 +91,4 @@ const myArray = new MyArray();
 
 ## Strings
 
-Los strings son inmutables. No podemos manipularlos una vez creados, debido al computo que se necesita para encontrar nuevos slots en memoria y migrar toda la informacion a esos slots.
+Los strings son inmutables. No podemos manipularlos una vez creados, debido al computo que se necesita para encontrar nuevos slots en memoria y migrar toda la información a esos slots.

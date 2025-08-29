@@ -1,8 +1,8 @@
-# Introduccion a las estructuras de datos
+# Introducción a las estructuras de datos
 
 ## Que son las estructuras de datos?
 
-Son las formas en como almacenamos y transofrmamos la informacion.
+Son las formas en como almacenamos y transformamos la información.
 
 Son colecciones de valores, las relaciones entre ellas y las funciones u operaciones que se pueden aplicar a los datos.
 
@@ -14,5 +14,5 @@ Son colecciones de valores, las relaciones entre ellas y las funciones u operaci
 - Un bit en cada slot
 - Un byte 8 slots
 - constante o variable se guarda mediante address
-- Cada slot tiene una direccion.
-- Cada parte del contenido de la variable o constante esta almacenada en una direccion de memoria.
+- Cada slot tiene una dirección.
+- Cada parte del contenido de la variable o constante esta almacenada en una dirección de memoria.
