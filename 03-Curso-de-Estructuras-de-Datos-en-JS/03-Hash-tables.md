@@ -124,6 +124,7 @@ class HashTable {
         }
       }
     }
+    return undefined;
   }
 }
 
